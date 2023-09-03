@@ -1,0 +1,762 @@
+blackbox:jsonata-api satheesh$ nvm
+
+Node Version Manager
+
+Note: <version> refers to any version-like string nvm understands. This includes:
+  - full or partial version numbers, starting with an optional "v" (0.10, v0.1.2, v1)
+  - default (built-in) aliases: node, stable, unstable, iojs, system
+  - custom aliases you define with `nvm alias foo`
+
+ Any options that produce colorized output should respect the `--no-colors` option.
+
+Usage:
+  nvm --help                                Show this message
+  nvm --version                             Print out the latest released version of nvm
+  nvm install [-s] <version>                Download and install a <version>, [-s] from source. Uses .nvmrc if available
+    --reinstall-packages-from=<version>     When installing, reinstall packages installed in <node|iojs|node version number>
+    --lts                                   When installing, only select from LTS (long-term support) versions
+    --lts=<LTS name>                        When installing, only select from versions for a specific LTS line
+  nvm uninstall <version>                   Uninstall a version
+  nvm uninstall --lts                       Uninstall using automatic LTS (long-term support) alias `lts/*`, if available.
+  nvm uninstall --lts=<LTS name>            Uninstall using automatic alias for provided LTS line, if available.
+  nvm use [--silent] <version>              Modify PATH to use <version>. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm exec [--silent] <version> [<command>] Run <command> on <version>. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm run [--silent] <version> [<args>]     Run `node` on <version> with <args> as arguments. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm current                               Display currently activated version
+  nvm ls                                    List installed versions
+  nvm ls <version>                          List versions matching a given <version>
+  nvm ls-remote                             List remote versions available for install
+    --lts                                   When listing, only show LTS (long-term support) versions
+  nvm ls-remote <version>                   List remote versions available for install, matching a given <version>
+    --lts                                   When listing, only show LTS (long-term support) versions
+    --lts=<LTS name>                        When listing, only show versions for a specific LTS line
+  nvm version <version>                     Resolve the given description to a single local version
+  nvm version-remote <version>              Resolve the given description to a single remote version
+    --lts                                   When listing, only select from LTS (long-term support) versions
+    --lts=<LTS name>                        When listing, only select from versions for a specific LTS line
+  nvm deactivate                            Undo effects of `nvm` on current shell
+  nvm alias [<pattern>]                     Show all aliases beginning with <pattern>
+  nvm alias <name> <version>                Set an alias named <name> pointing to <version>
+  nvm unalias <name>                        Deletes the alias named <name>
+  nvm reinstall-packages <version>          Reinstall global `npm` packages contained in <version> to current version
+  nvm unload                                Unload `nvm` from shell
+  nvm which [<version>]                     Display path to installed node version. Uses .nvmrc if available
+  nvm cache dir                             Display path to the cache directory for nvm
+  nvm cache clear                           Empty cache directory for nvm
+
+Example:
+  nvm install v0.10.32                  Install a specific version number
+  nvm use 0.10                          Use the latest available 0.10.x release
+  nvm run 0.10.32 app.js                Run app.js using node v0.10.32
+  nvm exec 0.10.32 node app.js          Run `node app.js` with the PATH pointing to node v0.10.32
+  nvm alias default 0.10.32             Set default node version on a shell
+
+Note:
+  to remove, delete, or uninstall nvm - just remove the `$NVM_DIR` folder (usually `~/.nvm`)
+
+blackbox:jsonata-api satheesh$ nvm lidt
+
+Node Version Manager
+
+Note: <version> refers to any version-like string nvm understands. This includes:
+  - full or partial version numbers, starting with an optional "v" (0.10, v0.1.2, v1)
+  - default (built-in) aliases: node, stable, unstable, iojs, system
+  - custom aliases you define with `nvm alias foo`
+
+ Any options that produce colorized output should respect the `--no-colors` option.
+
+Usage:
+  nvm --help                                Show this message
+  nvm --version                             Print out the latest released version of nvm
+  nvm install [-s] <version>                Download and install a <version>, [-s] from source. Uses .nvmrc if available
+    --reinstall-packages-from=<version>     When installing, reinstall packages installed in <node|iojs|node version number>
+    --lts                                   When installing, only select from LTS (long-term support) versions
+    --lts=<LTS name>                        When installing, only select from versions for a specific LTS line
+  nvm uninstall <version>                   Uninstall a version
+  nvm uninstall --lts                       Uninstall using automatic LTS (long-term support) alias `lts/*`, if available.
+  nvm uninstall --lts=<LTS name>            Uninstall using automatic alias for provided LTS line, if available.
+  nvm use [--silent] <version>              Modify PATH to use <version>. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm exec [--silent] <version> [<command>] Run <command> on <version>. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm run [--silent] <version> [<args>]     Run `node` on <version> with <args> as arguments. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm current                               Display currently activated version
+  nvm ls                                    List installed versions
+  nvm ls <version>                          List versions matching a given <version>
+  nvm ls-remote                             List remote versions available for install
+    --lts                                   When listing, only show LTS (long-term support) versions
+  nvm ls-remote <version>                   List remote versions available for install, matching a given <version>
+    --lts                                   When listing, only show LTS (long-term support) versions
+    --lts=<LTS name>                        When listing, only show versions for a specific LTS line
+  nvm version <version>                     Resolve the given description to a single local version
+  nvm version-remote <version>              Resolve the given description to a single remote version
+    --lts                                   When listing, only select from LTS (long-term support) versions
+    --lts=<LTS name>                        When listing, only select from versions for a specific LTS line
+  nvm deactivate                            Undo effects of `nvm` on current shell
+  nvm alias [<pattern>]                     Show all aliases beginning with <pattern>
+  nvm alias <name> <version>                Set an alias named <name> pointing to <version>
+  nvm unalias <name>                        Deletes the alias named <name>
+  nvm reinstall-packages <version>          Reinstall global `npm` packages contained in <version> to current version
+  nvm unload                                Unload `nvm` from shell
+  nvm which [<version>]                     Display path to installed node version. Uses .nvmrc if available
+  nvm cache dir                             Display path to the cache directory for nvm
+  nvm cache clear                           Empty cache directory for nvm
+
+Example:
+  nvm install v0.10.32                  Install a specific version number
+  nvm use 0.10                          Use the latest available 0.10.x release
+  nvm run 0.10.32 app.js                Run app.js using node v0.10.32
+blackbox:jsonata-api satheesh$ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (jsonata-api) 
+version: (1.0.0) 
+description: 
+entry point: (index.js) 
+test command: 
+blackbox:jsonata-api satheesh$ npm i --save-dev nodemon 
+
+added 34 packages, and audited 128 packages in 3s
+
+13 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+blackbox:jsonata-api satheesh$ npm start
+
+> jsonata-api@1.0.0 start
+> nodemon index.js
+
+[nodemon] 3.0.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node index.js`
+(node:81328) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+(Use `node --trace-warnings ...` to show where the warning was created)
+/Users/satheesh/workspace/jsonata-api/index.js:1
+import express from "express";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at Object.compileFunction (node:vm:360:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1088:15)
+    at Module._compile (node:internal/modules/cjs/loader:1123:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/index.js:1
+const express = requrie("express");
+                ^
+
+ReferenceError: requrie is not defined
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/openapi-service.js:5
+export default generateExpression;
+^^^^^^
+
+SyntaxError: Unexpected token 'export'
+    at Object.compileFunction (node:vm:360:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1088:15)
+    at Module._compile (node:internal/modules/cjs/loader:1123:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Module.require (node:internal/modules/cjs/loader:1061:19)
+    at require (node:internal/modules/cjs/helpers:103:18)
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:3:28)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/index.js:10
+app.use(morgan("dev"));
+    ^
+
+ReferenceError: morgan is not defined
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:10:5)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/index.js:12
+app.use(cors());
+    ^
+
+ReferenceError: cors is not defined
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:12:5)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/index.js:14
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(docs));
+                     ^
+
+ReferenceError: swaggerUI is not defined
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:14:22)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+node:internal/modules/cjs/loader:998
+  throw err;
+  ^
+
+Error: Cannot find module './docs'
+Require stack:
+- /Users/satheesh/workspace/jsonata-api/index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+    at Module._load (node:internal/modules/cjs/loader:841:27)
+    at Module.require (node:internal/modules/cjs/loader:1061:19)
+    at require (node:internal/modules/cjs/helpers:103:18)
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:7:14)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/Users/satheesh/workspace/jsonata-api/index.js' ]
+}
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+GET /api-docs 301 4.571 ms - 183
+GET /api-docs/ 200 2.843 ms - 3106
+GET /api-docs/swagger-ui-init.js 200 0.746 ms - 1445
+GET /api-docs/swagger-ui.css 200 27.892 ms - 151211
+GET /api-docs/swagger-ui-standalone-preset.js 200 21.916 ms - 246493
+GET /api-docs/swagger-ui-bundle.js 200 27.047 ms - 1446714
+GET / 404 1.050 ms - 139
+GET /api-docs/favicon-32x32.png 200 1.100 ms - 628
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/index.js:5
+const swaggerSpec = swaggerJSDoc(options);
+                    ^
+
+ReferenceError: swaggerJSDoc is not defined
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:5:21)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+/Users/satheesh/workspace/jsonata-api/index.js:9
+const swaggerSpec = swaggerJSDoc(options);
+                                 ^
+
+ReferenceError: options is not defined
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:9:34)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+GET /api-docs/ 304 5.906 ms - -
+GET /api-docs/swagger-ui-init.js 200 2.174 ms - 1906
+GET /api-docs/swagger-ui.css 304 16.153 ms - -
+GET /api-docs/swagger-ui-bundle.js 304 15.738 ms - -
+GET /api-docs/swagger-ui-standalone-preset.js 304 9.651 ms - -
+GET /api-docs/favicon-32x32.png 304 0.451 ms - -
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+GET /api-docs/ 304 5.329 ms - -
+GET /api-docs/swagger-ui-bundle.js 304 2.401 ms - -
+GET /api-docs/swagger-ui.css 304 8.770 ms - -
+GET /api-docs/swagger-ui-init.js 200 0.418 ms - 1907
+GET /api-docs/swagger-ui-standalone-preset.js 304 4.540 ms - -
+GET /api-docs/favicon-32x32.png 304 0.980 ms - -
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Not all input has been taken into account at your final specification.
+Here's the report: 
+
+
+ Error in ./index.js :
+YAMLSyntaxError: A collection cannot be both a mapping and a sequence at line 1, column 1:
+
+/jsonata/expression:
+^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSyntaxError: Failed to resolve SEQ_ITEM node here at line 5, column 1:
+
+- application/json
+^^^^^^^^^^^^^^^^^^
+
+YAMLSemanticError: Implicit map keys need to be followed by map values at line 5, column 1:
+
+- application/json
+^^^^^^^^^^^^^^^^^^
+
+YAMLSemanticError: Nested mappings are not allowed in compact mappings at line 19, column 7:
+
+type: object
+      ^^^^^^…
+
+YAMLSemanticError: Implicit map keys need to be on a single line at line 19, column 7:
+
+type: object
+      ^^^^^^…
+
+YAMLSemanticError: Map keys must be unique; "type" is repeated at line 1, column 1:
+
+/jsonata/expression:
+^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSemanticError: Map keys must be unique; "type" is repeated at line 1, column 1:
+
+/jsonata/expression:
+^^^^^^^^^^^^^^^^^^^^…
+
+app started on port:4000
+GET /api-docs/ 304 5.193 ms - -
+GET /api-docs/swagger-ui-init.js 200 0.664 ms - 1618
+GET /api-docs/swagger-ui.css 304 21.009 ms - -
+GET /api-docs/swagger-ui-standalone-preset.js 304 15.192 ms - -
+GET /api-docs/swagger-ui-bundle.js 304 17.017 ms - -
+GET /api-docs/favicon-32x32.png 304 0.920 ms - -
+GET /api-docs/ 304 0.818 ms - -
+GET /api-docs/swagger-ui-init.js 304 0.234 ms - -
+GET /api-docs/swagger-ui.css 304 6.627 ms - -
+GET /api-docs/swagger-ui-bundle.js 304 8.643 ms - -
+GET /api-docs/swagger-ui-standalone-preset.js 304 12.616 ms - -
+GET /api-docs/favicon-32x32.png 304 5.161 ms - -
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Not all input has been taken into account at your final specification.
+Here's the report: 
+
+
+ Error in ./index.js :
+YAMLSyntaxError: All collection items must start at the same column at line 2, column 3:
+
+  post:
+  ^^^^^…
+
+YAMLSyntaxError: All collection items must start at the same column at line 3, column 6:
+
+     description: Get JSONata expression from input and output JSON data.
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSemanticError: Nested mappings are not allowed in compact mappings at line 8, column 17:
+
+          name: input
+                ^^^^^…
+
+YAMLSemanticError: Implicit map keys need to be on a single line at line 8, column 17:
+
+          name: input
+                ^^^^^…
+
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Not all input has been taken into account at your final specification.
+Here's the report: 
+
+
+ Error in ./index.js :
+YAMLSyntaxError: All collection items must start at the same column at line 2, column 3:
+
+  post:
+  ^^^^^…
+
+YAMLSyntaxError: All collection items must start at the same column at line 3, column 6:
+
+     description: Get JSONata expression from input and output JSON data.
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSemanticError: Nested mappings are not allowed in compact mappings at line 8, column 17:
+
+          name: input
+                ^^^^^…
+
+YAMLSemanticError: Implicit map keys need to be on a single line at line 8, column 17:
+
+          name: input
+                ^^^^^…
+
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Not all input has been taken into account at your final specification.
+Here's the report: 
+
+
+ Error in ./index.js :
+YAMLSyntaxError: All collection items must start at the same column at line 2, column 3:
+
+  post:
+  ^^^^^…
+
+YAMLSyntaxError: All collection items must start at the same column at line 3, column 6:
+
+     description: Get JSONata expression from input and output JSON data.
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSemanticError: Nested mappings are not allowed in compact mappings at line 8, column 16:
+
+         name: input
+               ^^^^^…
+
+YAMLSemanticError: Implicit map keys need to be on a single line at line 8, column 16:
+
+         name: input
+               ^^^^^…
+
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Not all input has been taken into account at your final specification.
+Here's the report: 
+
+
+ Error in ./index.js :
+YAMLSyntaxError: All collection items must start at the same column at line 2, column 3:
+
+  post:
+  ^^^^^…
+
+YAMLSyntaxError: All collection items must start at the same column at line 3, column 6:
+
+     description: Get JSONata expression from input and output JSON data.
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSemanticError: Nested mappings are not allowed in compact mappings at line 8, column 16:
+
+         name: input
+               ^^^^^…
+
+YAMLSemanticError: Implicit map keys need to be on a single line at line 8, column 16:
+
+         name: input
+               ^^^^^…
+
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+Not all input has been taken into account at your final specification.
+Here's the report: 
+
+
+ Error in ./index.js :
+YAMLSyntaxError: All collection items must start at the same column at line 2, column 3:
+
+  post:
+  ^^^^^…
+
+YAMLSyntaxError: All collection items must start at the same column at line 3, column 6:
+
+     description: Get JSONata expression from input and output JSON data.
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^…
+
+YAMLSemanticError: Nested mappings are not allowed in compact mappings at line 8, column 16:
+
+         name: input
+               ^^^^^…
+
+YAMLSemanticError: Implicit map keys need to be on a single line at line 8, column 16:
+
+         name: input
+               ^^^^^…
+
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+node:internal/modules/cjs/loader:1230
+    throw err;
+    ^
+
+SyntaxError: /Users/satheesh/workspace/jsonata-api/swagger.json: Unexpected end of JSON input
+    at parse (<anonymous>)
+    at Module._extensions..json (node:internal/modules/cjs/loader:1227:39)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Module.require (node:internal/modules/cjs/loader:1061:19)
+    at require (node:internal/modules/cjs/helpers:103:18)
+    at Object.<anonymous> (/Users/satheesh/workspace/jsonata-api/index.js:5:25)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+GET /api-docs/ 304 6.264 ms - -
+GET /api-docs/swagger-ui.css 304 4.268 ms - -
+GET /api-docs/swagger-ui-init.js 200 0.364 ms - 1445
+GET /api-docs/swagger-ui-bundle.js 304 4.754 ms - -
+GET /api-docs/swagger-ui-standalone-preset.js 304 8.535 ms - -
+GET / 404 4.797 ms - 139
+GET /api-docs/favicon-32x32.png 304 0.999 ms - -
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+GET /api-docs/ 304 5.469 ms - -
+GET /api-docs/swagger-ui.css 304 8.542 ms - -
+GET /api-docs/swagger-ui-init.js 200 0.474 ms - 4386
+GET /api-docs/swagger-ui-bundle.js 304 15.731 ms - -
+GET /api-docs/swagger-ui-standalone-preset.js 304 4.601 ms - -
+GET /api-docs/favicon-32x32.png 304 1.237 ms - -
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+GET /api-docs/ 304 5.529 ms - -
+GET /api-docs/swagger-ui-init.js 200 2.120 ms - 4377
+GET /api-docs/swagger-ui.css 304 21.729 ms - -
+GET /api-docs/swagger-ui-bundle.js 304 17.517 ms - -
+GET /api-docs/swagger-ui-standalone-preset.js 304 17.435 ms - -
+GET /api-docs/favicon-32x32.png 304 0.474 ms - -
+POST /jsonata/expression 200 0.974 ms - 2
+/Users/satheesh/workspace/jsonata-api/openapi-service.js:25
+  return response.data.choices[0].text;
+                       ^
+
+TypeError: Cannot read properties of undefined (reading 'choices')
+    at generateExpression (/Users/satheesh/workspace/jsonata-api/openapi-service.js:25:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 4.066 ms - 2
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.532 ms - 2
+undefined
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.761 ms - 2
+{
+  id: 'chatcmpl-7uajv1qLZrHAlHWNic3YB6WrcGlL8',
+  object: 'chat.completion',
+  created: 1693721951,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 34, completion_tokens: 30, total_tokens: 64 }
+}
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.777 ms - 2
+{
+  id: 'chatcmpl-7uaka6tC8ntm45kLtb9pf84UMjtrv',
+  object: 'chat.completion',
+  created: 1693721992,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 34, completion_tokens: 32, total_tokens: 66 }
+}
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.753 ms - 2
+{
+  id: 'chatcmpl-7ualDS8OqjDfcTdTjNtsrGkRYgspy',
+  object: 'chat.completion',
+  created: 1693722031,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 34, completion_tokens: 32, total_tokens: 66 }
+}
+{
+  role: 'assistant',
+  content: 'I apologize, but I need more information in order to provide a specific solution. Could you please provide a sample of the input JSON and the expected output JSON?'
+}
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.450 ms - 2
+{
+  id: 'chatcmpl-7uao2p4RbOmW7i9gS9YjBDHrn3qn4',
+  object: 'chat.completion',
+  created: 1693722206,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 34, completion_tokens: 14, total_tokens: 48 }
+}
+{
+  role: 'assistant',
+  content: '{\n  "inputJSON": {},\n  "outputJSON": {}\n}'
+}
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.648 ms - 2
+{
+  id: 'chatcmpl-7uap5Vg4Y6c1fuPLSCf8gFEFJ7oTe',
+  object: 'chat.completion',
+  created: 1693722271,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 46, completion_tokens: 72, total_tokens: 118 }
+}
+{
+  role: 'assistant',
+  content: '{\n' +
+    '  "inputJSON": {\n' +
+    '    "Prop1": "Value1",\n' +
+    '    "Prop2": "Value2",\n' +
+    '    "Prop3": "Value3"\n' +
+    '  },\n' +
+    '  "outputJSON": {\n' +
+    '    "Prop4": "Value4",\n' +
+    '    "Prop5": "Value5",\n' +
+    '    "Prop6": "Value6"\n' +
+    '  }\n' +
+    '}'
+}
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+POST /jsonata/expression 200 3.505 ms - 2
+{
+  id: 'chatcmpl-7uaqMmBrcnD5HD7nR8S7RUdD4Z7pi',
+  object: 'chat.completion',
+  created: 1693722350,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 424, completion_tokens: 235, total_tokens: 659 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON into the desired output JSON is:\n' +
+    '\n' +
+    '```\n' +
+    '{\n' +
+    `  "name": FirstName & ' ' & Surname,\n` +
+    `  "mobile": Phone[type = 'mobile'].number,\n` +
+    `  "officeEmails": Email[type = 'office'].address[],\n` +
+    `  "homeEmails": Email[type = 'home'].address[]\n` +
+    '}\n' +
+    '```\n' +
+    '\n' +
+    "This expression first concatenates the `FirstName` and `Surname` fields to create the `name` field in the output JSON. Then, it selects the `number` value from the `Phone` array where the `type` is equal to 'mobile', and assigns it to the `mobile` field in the output JSON.\n" +
+    '\n' +
+    "Next, it selects the `address` values from the `Email` array where the `type` is equal to 'office', and assigns them to the `officeEmails` array in the output JSON. Similarly, it selects the `address` values from the `Email` array where the `type` is equal to 'home', and assigns them to the `homeEmails` array in the output JSON.\n" +
+    '\n' +
+    'This JSONata expression should produce the desired output JSON.'
+}

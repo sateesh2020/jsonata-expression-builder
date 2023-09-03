@@ -1,0 +1,115 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "JSONata expresions - OpenAPI 3.0",
+    "description": "This is an API which has wrappers around JSONata",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "admin@kumologica.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.11"
+  },
+  "tags": [
+    {
+      "name": "expression",
+      "description": "JSONata expression"
+    }
+  ],
+  "paths": {
+    "/jsonata/expression": {
+      "post": {
+        "tags": ["expression"],
+        "summary": "Generate JSONata expression based on input and output json",
+        "operationId": "addPet",
+        "requestBody": {
+          "description": "Generate JSONata expression",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpressionInput"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpressionInput"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpressionInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpressionOutput"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpressionOutput"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExpressionInput": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object"
+          },
+          "output": {
+            "type": "object"
+          }
+        }
+      },
+      "ExpressionOutput": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "ExpressionInput": {
+        "description": "Object that has input and output json",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ExpressionInput"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/ExpressionInput"
+            }
+          }
+        }
+      }
+    }
+  }
+}

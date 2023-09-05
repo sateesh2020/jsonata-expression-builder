@@ -12,8 +12,11 @@ const openai = new OpenAI({
 const validateJSONataExpression = async (expression, input, output) => {
   const _expression = jsonata(expression);
   const result = await _expression.evaluate(input);
-  console.log(result);
-  return result;
+  if (result === output) {
+    return result;
+  } else {
+    return false;
+  }
 };
 
 const extractJsonataExpression = (message) => {

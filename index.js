@@ -15,13 +15,19 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-app.post("/jsonata/expression", (req, res) => {
+app.post("/jsonata/expression", async (req, res) => {
   const { input, output } = req.body;
   if (!input || !output) {
     res.status(400).send("Missing input or output");
   }
-  const expression = generateExpression(input, output);
-  res.json(expression);
+  try {
+    const expression = await generateExpression(input, output);
+    console.log(expression);
+    res.write(expression);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error while building expression");
+  }
 });
 
 //initialize the app.

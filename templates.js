@@ -1,5 +1,6 @@
 const EXPRESSION_BUILDER_PROMPT = `
-    I want you to act as a jsonata expression builder from given input and output json data. 
+    I want you to act as a jsonata expression builder from given input and output json data.
+    Always respond in markdown format with code blocks.
     Examples:
     Input JSON: 
     \`{

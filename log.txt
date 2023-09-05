@@ -760,3 +760,1030 @@ POST /jsonata/expression 200 3.505 ms - 2
     '\n' +
     'This JSONata expression should produce the desired output JSON.'
 }
+
+{
+  code: 'S0201',
+  position: 10,
+  token: 'library',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:56:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: "library"'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vIo4pUFbF4KaiSgttbe9Gy8lCsmy',
+  object: 'chat.completion',
+  created: 1693891344,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 94, total_tokens: 810 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression for the given input and output JSON is as follows:\n' +
+    '\n' +
+    '`$library.loans.^{\n' +
+    '  "customer": $library.customers[id=$.customer].name,\n' +
+    '  "book": $library.books[isbn=$.isbn].title,\n' +
+    '  "due": $.return\n' +
+    '}`\n' +
+    '\n' +
+    'This expression retrieves the loans from the library and maps them to the desired output format. It uses various functions and operators of JSONata to access and manipulate the data.'
+}
+message The JSONata expression for the given input and output JSON is as follows:
+
+`$library.loans.^{
+  "customer": $library.customers[id=$.customer].name,
+  "book": $library.books[isbn=$.isbn].title,
+  "due": $.return
+}`
+
+This expression retrieves the loans from the library and maps them to the desired output format. It uses various functions and operators of JSONata to access and manipulate the data.
+expression 
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0207',
+  position: 0,
+  token: '(end)',
+  stack: 'Error\n' +
+    '    at processAST (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6939:38)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6962:16)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:56:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Unexpected end of expression'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vIp3L4xsfkvbPsP5KXNP6YqOQZgd',
+  object: 'chat.completion',
+  created: 1693891405,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 215, total_tokens: 931 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON to the output JSON is as follows:\n' +
+    '\n' +
+    '```\n' +
+    '$library.loans.$map(function($loan) {\n' +
+    '    {\n' +
+    '        "customer": $library.customers[$loan.customer = id].name,\n' +
+    '        "book": $library.books[$loan.isbn = isbn].title,\n' +
+    '        "due": $loan.return\n' +
+    '    }\n' +
+    '})\n' +
+    '```\n' +
+    '\n' +
+    'Explanation:\n' +
+    '- `$library.loans` retrieves the loans array from the input JSON.\n' +
+    '- `.map` is used to iterate over each loan in the array.\n' +
+    '- The function inside `.map` is executed for each loan and transforms it into the desired format.\n' +
+    "- `$library.customers[$loan.customer = id].name` retrieves the customer name using the loan's customer ID.\n" +
+    "- `$library.books[$loan.isbn = isbn].title` retrieves the book title using the loan's ISBN.\n" +
+    '- `$loan.return` retrieves the return date for the loan.\n' +
+    '- The result is an array of objects, where each object represents a loan with the customer, book, and due date information.'
+}
+message The JSONata expression to transform the input JSON to the output JSON is as follows:
+
+```
+$library.loans.$map(function($loan) {
+    {
+        "customer": $library.customers[$loan.customer = id].name,
+        "book": $library.books[$loan.isbn = isbn].title,
+        "due": $loan.return
+    }
+})
+```
+
+Explanation:
+- `$library.loans` retrieves the loans array from the input JSON.
+- `.map` is used to iterate over each loan in the array.
+- The function inside `.map` is executed for each loan and transforms it into the desired format.
+- `$library.customers[$loan.customer = id].name` retrieves the customer name using the loan's customer ID.
+- `$library.books[$loan.isbn = isbn].title` retrieves the book title using the loan's ISBN.
+- `$loan.return` retrieves the return date for the loan.
+- The result is an array of objects, where each object represents a loan with the customer, book, and due date information.
+expression ``
+$library.loans.$map(function($loan) {
+    {
+        "customer": $library.customers[$loan.customer = id].name,
+        "book": $library.books[$loan.isbn = isbn].title,
+        "due": $loan.return
+    }
+})
+
+``
+$library.loans.$map(function($loan) {
+    {
+        "customer": $library.customers[$loan.customer = id].name,
+        "book": $library.books[$loan.isbn = isbn].title,
+        "due": $loan.return
+    }
+})
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0201',
+  position: 11,
+  token: 'library',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:56:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: "library"'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJ1PfJYMlHYDJoNoDlJTbMTlzgb2',
+  object: 'chat.completion',
+  created: 1693892171,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 132, total_tokens: 848 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression for transforming the input JSON into the output JSON can be as follows:\n' +
+    '\n' +
+    '`library.loans{}.$merge(library.books.{\n' +
+    '  "customer": $lookup(library.customers, {id: customer}).name,\n' +
+    '  "book": $lookup(library.books, {isbn: isbn}).title,\n' +
+    '  "due": return\n' +
+    '})`\n' +
+    '\n' +
+    'This expression uses the `$merge` function to merge the desired properties from different objects into a single object. It looks up the corresponding customer name and book title using the `customer` and `isbn` properties respectively. The resulting objects are filtered using the `library.loans{}` syntax to exclude empty objects.'
+}
+message The JSONata expression for transforming the input JSON into the output JSON can be as follows:
+
+`library.loans{}.$merge(library.books.{
+  "customer": $lookup(library.customers, {id: customer}).name,
+  "book": $lookup(library.books, {isbn: isbn}).title,
+  "due": return
+})`
+
+This expression uses the `$merge` function to merge the desired properties from different objects into a single object. It looks up the corresponding customer name and book title using the `customer` and `isbn` properties respectively. The resulting objects are filtered using the `library.loans{}` syntax to exclude empty objects.
+expression Th
+Th
+undefined
+{}
+POST /jsonata/expression 200 7394.892 ms - 2
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJ3pT0QuRtQCXXcNeGhcoXAkeOeS',
+  object: 'chat.completion',
+  created: 1693892321,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 73, total_tokens: 789 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON to the output JSON is as follows:\n' +
+    '\n' +
+    '```\n' +
+    '$library.loans[$isbn in $library.books.isbn].{\n' +
+    '    "customer": $library.customers[$id = $customer].name,\n' +
+    '    "book": $library.books[$isbn = $isbn].title,\n' +
+    '    "due": $return\n' +
+    '}\n' +
+    '```'
+}
+message The JSONata expression to transform the input JSON to the output JSON is as follows:
+
+```
+$library.loans[$isbn in $library.books.isbn].{
+    "customer": $library.customers[$id = $customer].name,
+    "book": $library.books[$isbn = $isbn].title,
+    "due": $return
+}
+```
+expression 
+$library.loans[$isbn in $library.books.isbn].{
+    "customer": $library.customers[$id = $customer].name,
+    "book": $library.books[$isbn = $isbn].title,
+    "due": $return
+}
+
+
+$library.loans[$isbn in $library.books.isbn].{
+    "customer": $library.customers[$id = $customer].name,
+    "book": $library.books[$isbn = $isbn].title,
+    "due": $return
+}
+
+undefined
+{}
+POST /jsonata/expression 200 3592.805 ms - 2
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJ46Yo1doYjJt7MYSow4AmxurKZe',
+  object: 'chat.completion',
+  created: 1693892338,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 118, total_tokens: 834 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON into the output JSON is as follows:\n' +
+    '\n' +
+    '```json\n' +
+    '$library.loans{\n' +
+    '  "customer": $library.customers[id = $.customer][0].name,\n' +
+    '  "book": $library.books[isbn = $.isbn][0].title,\n' +
+    '  "due": $.return\n' +
+    '}\n' +
+    '```\n' +
+    '\n' +
+    'The expression selects the `loans` array from the `library` object and then transforms each loan item into a new object with the desired properties. It uses nested queries to look up the customer name and book title based on the corresponding IDs.'
+}
+message The JSONata expression to transform the input JSON into the output JSON is as follows:
+
+```json
+$library.loans{
+  "customer": $library.customers[id = $.customer][0].name,
+  "book": $library.books[isbn = $.isbn][0].title,
+  "due": $.return
+}
+```
+
+The expression selects the `loans` array from the `library` object and then transforms each loan item into a new object with the desired properties. It uses nested queries to look up the customer name and book title based on the corresponding IDs.
+expression json
+$library.loans{
+  "customer": $library.customers[id = $.customer][0].name,
+  "book": $library.books[isbn = $.isbn][0].title,
+  "due": $.return
+}
+
+json
+$library.loans{
+  "customer": $library.customers[id = $.customer][0].name,
+  "book": $library.books[isbn = $.isbn][0].title,
+  "due": $.return
+}
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0201',
+  position: 13,
+  token: 'library',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:56:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: "library"'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJ4WmVZRg9X1d0cPT9lF3tN8Ic8s',
+  object: 'chat.completion',
+  created: 1693892364,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 124, total_tokens: 840 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression for transforming the input JSON to the desired output JSON is as follows:\n' +
+    '\n' +
+    '```\n' +
+    'library.loans[$customer = library.customers[id].id].{\n' +
+    '  "customer": library.customers[id].name,\n' +
+    '  "book": library.books[$isbn = isbn].title,\n' +
+    '  "due": return\n' +
+    '}\n' +
+    '```\n' +
+    '\n' +
+    "Here's the complete transformation code:\n" +
+    '\n' +
+    '```jsonata\n' +
+    'library.loans[$customer = library.customers[id].id].{\n' +
+    '  "customer": library.customers[id].name,\n' +
+    '  "book": library.books[$isbn = isbn].title,\n' +
+    '  "due": return\n' +
+    '}\n' +
+    '```'
+}
+message The JSONata expression for transforming the input JSON to the desired output JSON is as follows:
+
+```
+library.loans[$customer = library.customers[id].id].{
+  "customer": library.customers[id].name,
+  "book": library.books[$isbn = isbn].title,
+  "due": return
+}
+```
+
+Here's the complete transformation code:
+
+```jsonata
+library.loans[$customer = library.customers[id].id].{
+  "customer": library.customers[id].name,
+  "book": library.books[$isbn = isbn].title,
+  "due": return
+}
+```
+expression 
+library.loans[$customer = library.customers[id].id].{
+  "customer": library.customers[id].name,
+  "book": library.books[$isbn = isbn].title,
+  "due": return
+}
+```
+
+Here's the complete transformation code:
+
+```jsonata
+library.loans[$customer = library.customers[id].id].{
+  "customer": library.customers[id].name,
+  "book": library.books[$isbn = isbn].title,
+  "due": return
+}
+
+
+library.loans[$customer = library.customers[id].id].{
+  "customer": library.customers[id].name,
+  "book": library.books[$isbn = isbn].title,
+  "due": return
+}
+```
+
+Here's the complete transformation code:
+
+```jsonata
+library.loans[$customer = library.customers[id].id].{
+  "customer": library.customers[id].name,
+  "book": library.books[$isbn = isbn].title,
+  "due": return
+}
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0201',
+  position: 162,
+  token: '',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:56:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: ""'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJ4sg9Me7eOwIhh90QeJT8JXNIJU',
+  object: 'chat.completion',
+  created: 1693892386,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 280, total_tokens: 996 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression for transforming the input JSON to the desired output is as follows:\n' +
+    '\n' +
+    '```\n' +
+    'library.loans.$map(function($l) {\n' +
+    '    {\n' +
+    '        "customer": library.customers[id=$l.customer].name,\n' +
+    '        "book": library.books[isbn=$l.isbn].title,\n' +
+    '        "due": $l.return\n' +
+    '    }\n' +
+    '})\n' +
+    '```\n' +
+    '\n' +
+    'Explanation: \n' +
+    '\n' +
+    '1. `library.loans` - Accesses the `loans` array within the `library` object.\n' +
+    '2. `.$map` - Applies a transformation to each object in the `loans` array.\n' +
+    '3. `function($l) {...}` - Defines a function that takes each loan object as input.\n' +
+    '4. `library.customers[id=$l.customer].name` - Accesses the `customers` array within the `library` object and filters for the customer with matching `id`. Then, retrieves the `name` property of that customer.\n' +
+    '5. `library.books[isbn=$l.isbn].title` - Accesses the `books` array within the `library` object and filters for the book with matching `isbn`. Then, retrieves the `title` property of that book.\n' +
+    '6. `$l.return` - Retrieves the `return` property of the loan object.\n' +
+    '\n' +
+    'The result is an array of objects with the desired properties: `customer`, `book`, and `due`.'
+}
+message The JSONata expression for transforming the input JSON to the desired output is as follows:
+
+```
+library.loans.$map(function($l) {
+    {
+        "customer": library.customers[id=$l.customer].name,
+        "book": library.books[isbn=$l.isbn].title,
+        "due": $l.return
+    }
+})
+```
+
+Explanation: 
+
+1. `library.loans` - Accesses the `loans` array within the `library` object.
+2. `.$map` - Applies a transformation to each object in the `loans` array.
+3. `function($l) {...}` - Defines a function that takes each loan object as input.
+4. `library.customers[id=$l.customer].name` - Accesses the `customers` array within the `library` object and filters for the customer with matching `id`. Then, retrieves the `name` property of that customer.
+5. `library.books[isbn=$l.isbn].title` - Accesses the `books` array within the `library` object and filters for the book with matching `isbn`. Then, retrieves the `title` property of that book.
+6. `$l.return` - Retrieves the `return` property of the loan object.
+
+The result is an array of objects with the desired properties: `customer`, `book`, and `due`.
+expression 
+library.loans.$map(function($l) {
+    {
+        "customer": library.customers[id=$l.customer].name,
+        "book": library.books[isbn=$l.isbn].title,
+        "due": $l.return
+    }
+})
+
+
+library.loans.$map(function($l) {
+    {
+        "customer": library.customers[id=$l.customer].name,
+        "book": library.books[isbn=$l.isbn].title,
+        "due": $l.return
+    }
+})
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'T0410',
+  stack: 'Error\n' +
+    '    at throwValidationError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:7187:33)\n' +
+    '    at Object.validate (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:7294:17)\n' +
+    '    at validateArguments (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5062:39)\n' +
+    '    at applyInner (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:4929:33)\n' +
+    '    at apply (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:4896:24)\n' +
+    '    at evaluateFunction (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:4871:28)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async evaluate (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:3525:26)\n' +
+    '    at async evaluateStep (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:3682:23)\n' +
+    '    at async evaluatePath (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:3612:38)',
+  value: undefined,
+  index: 2,
+  token: 'map',
+  position: 20,
+  message: 'Argument 2 of function "map" does not match function signature'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJ8E14bBTjXFbkXuaeYn88pZ6n7P',
+  object: 'chat.completion',
+  created: 1693892594,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 226, total_tokens: 942 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression for transforming the input JSON to the desired output JSON is as follows:\n' +
+    '\n' +
+    '```\n' +
+    'library.loans[$customer=library.customers.id].{\n' +
+    '  "customer": library.customers[id=$customer].name,\n' +
+    '  "book": library.books[isbn=$isbn].title,\n' +
+    '  "due": return\n' +
+    '}\n' +
+    '```\n' +
+    '\n' +
+    "Let's break it down:\n" +
+    '\n' +
+    '- `library.loans`: Selects the loans array within the library object.\n' +
+    '- `[ $customer=library.customers.id ]`: Filters the loans array where the customer ID matches the ID of a customer in the customers array.\n' +
+    '- `.{ ... }`: Creates an object containing the desired properties.\n' +
+    '- `"customer": library.customers[id=$customer].name`: Retrieves the name property from the customers array where the customer ID matches the filtered loans customer ID.\n' +
+    '- `"book": library.books[isbn=$isbn].title`: Retrieves the title property from the books array where the ISBN matches the filtered loans ISBN.\n' +
+    '- `"due": return`: Sets the value of the due property to the return property of the loans array.\n' +
+    '\n' +
+    'This expression will give the desired output JSON.'
+}
+message The JSONata expression for transforming the input JSON to the desired output JSON is as follows:
+
+```
+library.loans[$customer=library.customers.id].{
+  "customer": library.customers[id=$customer].name,
+  "book": library.books[isbn=$isbn].title,
+  "due": return
+}
+```
+
+Let's break it down:
+
+- `library.loans`: Selects the loans array within the library object.
+- `[ $customer=library.customers.id ]`: Filters the loans array where the customer ID matches the ID of a customer in the customers array.
+- `.{ ... }`: Creates an object containing the desired properties.
+- `"customer": library.customers[id=$customer].name`: Retrieves the name property from the customers array where the customer ID matches the filtered loans customer ID.
+- `"book": library.books[isbn=$isbn].title`: Retrieves the title property from the books array where the ISBN matches the filtered loans ISBN.
+- `"due": return`: Sets the value of the due property to the return property of the loans array.
+
+This expression will give the desired output JSON.
+expression ta expression for transforming the input JSON to the desired output JSON is as follows:
+
+```
+library.loans[$customer=library.customers.id].{
+  "customer": library.customers[id=$customer].name,
+  "book": library.books[isbn=$isbn].title,
+  "due": return
+}
+
+ta expression for transforming the input JSON to the desired output JSON is as follows:
+
+```
+library.loans[$customer=library.customers.id].{
+  "customer": library.customers[id=$customer].name,
+  "book": library.books[isbn=$isbn].title,
+  "due": return
+}
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0201',
+  position: 13,
+  token: 'expression',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:66:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: "expression"'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJA4I4xifqTgJatVlyc36bgbsMJG',
+  object: 'chat.completion',
+  created: 1693892708,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 190, total_tokens: 906 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON to the output JSON is:\n' +
+    '\n' +
+    '```\n' +
+    '$library.loans.{\n' +
+    '  "customer": $library.customers[id=$.customer].name,\n' +
+    '  "book": $library.books[isbn=$.isbn].title,\n' +
+    '  "due": $.return\n' +
+    '}\n' +
+    '```\n' +
+    '\n' +
+    "Here, we are using the JSONata operators to select the desired values from the input JSON. We iterate over each loan object in the `library.loans` array and create a new object with the required fields. The customer's name is obtained by matching the customer ID in the loan object with the ID in the `library.customers` array. Similarly, the book's title is obtained by matching the book's ISBN in the loan object with the ISBN in the `library.books` array. The due date is directly obtained from the loan object.\n" +
+    '\n' +
+    'Applying this JSONata expression to the input JSON will produce the desired output JSON.'
+}
+message The JSONata expression to transform the input JSON to the output JSON is:
+
+```
+$library.loans.{
+  "customer": $library.customers[id=$.customer].name,
+  "book": $library.books[isbn=$.isbn].title,
+  "due": $.return
+}
+```
+
+Here, we are using the JSONata operators to select the desired values from the input JSON. We iterate over each loan object in the `library.loans` array and create a new object with the required fields. The customer's name is obtained by matching the customer ID in the loan object with the ID in the `library.customers` array. Similarly, the book's title is obtained by matching the book's ISBN in the loan object with the ISBN in the `library.books` array. The due date is directly obtained from the loan object.
+
+Applying this JSONata expression to the input JSON will produce the desired output JSON.
+indexString ```jsonata
+skipCount 10
+expression ta expression to transform the input JSON to the output JSON is:
+
+```
+$library.loans.{
+  "customer": $library.customers[id=$.customer].name,
+  "book": $library.books[isbn=$.isbn].title,
+  "due": $.return
+}
+
+ta expression to transform the input JSON to the output JSON is:
+
+```
+$library.loans.{
+  "customer": $library.customers[id=$.customer].name,
+  "book": $library.books[isbn=$.isbn].title,
+  "due": $.return
+}
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0201',
+  position: 13,
+  token: 'expression',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:68:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: "expression"'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJBre6CmNgEDRRZpPqHMrvgXxVnY',
+  object: 'chat.completion',
+  created: 1693892819,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 88, total_tokens: 804 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON into the output JSON is as follows:\n' +
+    '\n' +
+    '```\n' +
+    'library.loans{\n' +
+    '  $loan := $;\n' +
+    '  $customer := library.customers[id = $loan.customer].name;\n' +
+    '  $book := library.books[isbn = $loan.isbn].title;\n' +
+    '  {\n' +
+    '    "customer": $customer,\n' +
+    '    "book": $book,\n' +
+    '    "due": $loan.return\n' +
+    '  }\n' +
+    '}\n' +
+    '```'
+}
+message The JSONata expression to transform the input JSON into the output JSON is as follows:
+
+```
+library.loans{
+  $loan := $;
+  $customer := library.customers[id = $loan.customer].name;
+  $book := library.books[isbn = $loan.isbn].title;
+  {
+    "customer": $customer,
+    "book": $book,
+    "due": $loan.return
+  }
+}
+```
+indexString ```jsonata
+skipCount 10
+expression ta expression to transform the input JSON into the output JSON is as follows:
+
+```
+library.loans{
+  $loan := $;
+  $customer := library.customers[id = $loan.customer].name;
+  $book := library.books[isbn = $loan.isbn].title;
+  {
+    "customer": $customer,
+    "book": $book,
+    "due": $loan.return
+  }
+}
+
+ta expression to transform the input JSON into the output JSON is as follows:
+
+```
+library.loans{
+  $loan := $;
+  $customer := library.customers[id = $loan.customer].name;
+  $book := library.books[isbn = $loan.isbn].title;
+  {
+    "customer": $customer,
+    "book": $book,
+    "due": $loan.return
+  }
+}
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0201',
+  position: 13,
+  token: 'expression',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6960:13)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:68:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async /Users/satheesh/workspace/jsonata-expression-builder/index.js:23:22',
+  message: 'Syntax error: "expression"'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJDTRy1cFva21LDZaxsZsAuITSUy',
+  object: 'chat.completion',
+  created: 1693892919,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 180, total_tokens: 896 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression for transforming the input JSON to the desired output JSON would be:\n' +
+    '\n' +
+    '`library.loans.$map(function($loan) {\n' +
+    '  {\n' +
+    '    "customer": library.customers[id=$loan.customer].name,\n' +
+    '    "book": library.books[isbn=$loan.isbn].title,\n' +
+    '    "due": $loan.return\n' +
+    '  }\n' +
+    '})`\n' +
+    '\n' +
+    "This expression uses the `$map` function to iterate over the `library.loans` array and transform each loan object into the desired output format. Inside the `$map` function, we use object construction to create a new object with the desired properties from the `library.customers` and `library.books` arrays, using the loan object's `customer` and `isbn` values as keys to find the corresponding customer and book information.\n" +
+    '\n' +
+    'Note: The above expression assumes that the input JSON is already parsed into a JSON object before applying the expression.'
+}
+message The JSONata expression for transforming the input JSON to the desired output JSON would be:
+
+`library.loans.$map(function($loan) {
+  {
+    "customer": library.customers[id=$loan.customer].name,
+    "book": library.books[isbn=$loan.isbn].title,
+    "due": $loan.return
+  }
+})`
+
+This expression uses the `$map` function to iterate over the `library.loans` array and transform each loan object into the desired output format. Inside the `$map` function, we use object construction to create a new object with the desired properties from the `library.customers` and `library.books` arrays, using the loan object's `customer` and `isbn` values as keys to find the corresponding customer and book information.
+
+Note: The above expression assumes that the input JSON is already parsed into a JSON object before applying the expression.
+indexString ```
+skipCount 3
+expression Th
+Th
+undefined
+{}
+POST /jsonata/expression 200 8072.966 ms - 2
+{ type: 'array', items: { type: 'object' } }
+{
+  id: 'chatcmpl-7vJERkmdUHGTgn86WSs6Og7JJEH0v',
+  object: 'chat.completion',
+  created: 1693892979,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 716, completion_tokens: 154, total_tokens: 870 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to transform the input JSON into the desired output JSON is as follows:\n' +
+    '\n' +
+    '```\n' +
+    'library.loans[$customer := library.customers[id = $.customer].name,\n' +
+    '              $book := library.books[isbn = $.isbn].title,\n' +
+    '              $due := $.return].{\n' +
+    '    "customer": $customer,\n' +
+    '    "book": $book,\n' +
+    '    "due": $due\n' +
+    '}\n' +
+    '```\n' +
+    '\n' +
+    'This expression uses the `library.loans` array as the input and uses the nested `library.customers` and `library.books` arrays to retrieve the customer name and book title based on the `customer` and `isbn` fields in each loan object. The resulting objects have the desired properties `"customer"`, `"book"`, and `"due"`.'
+}
+message The JSONata expression to transform the input JSON into the desired output JSON is as follows:
+
+```
+library.loans[$customer := library.customers[id = $.customer].name,
+              $book := library.books[isbn = $.isbn].title,
+              $due := $.return].{
+    "customer": $customer,
+    "book": $book,
+    "due": $due
+}
+```
+
+This expression uses the `library.loans` array as the input and uses the nested `library.customers` and `library.books` arrays to retrieve the customer name and book title based on the `customer` and `isbn` fields in each loan object. The resulting objects have the desired properties `"customer"`, `"book"`, and `"due"`.
+indexString ```
+skipCount 3
+expression 
+library.loans[$customer := library.customers[id = $.customer].name,
+              $book := library.books[isbn = $.isbn].title,
+              $due := $.return].{
+    "customer": $customer,
+    "book": $book,
+    "due": $due
+}
+
+
+library.loans[$customer := library.customers[id = $.customer].name,
+              $book := library.books[isbn = $.isbn].title,
+              $due := $.return].{
+    "customer": $customer,
+    "book": $book,
+    "due": $due
+}
+
+
+node:internal/process/promises:279
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+{
+  code: 'S0202',
+  position: 68,
+  token: ',',
+  value: ']',
+  stack: 'Error\n' +
+    '    at handleError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5999:30)\n' +
+    '    at advance (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6019:24)\n' +
+    '    at Object.led (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6313:17)\n' +
+    '    at expression (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6081:26)\n' +
+    '    at Object.s.led (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6101:28)\n' +
+    '    at expression (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6081:26)\n' +
+    '    at parser (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:6953:20)\n' +
+    '    at jsonata (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5496:19)\n' +
+    '    at validateJSONataExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:13:23)\n' +
+    '    at generateExpression (/Users/satheesh/workspace/jsonata-expression-builder/openapi-service.js:68:35)',
+  message: 'Expected "]", got ","'
+}
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'number' }
+{
+  id: 'chatcmpl-7vJK8e8H0YKmdrjVjvQ1yWEMcWtHt',
+  object: 'chat.completion',
+  created: 1693893332,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 479, completion_tokens: 71, total_tokens: 550 }
+}
+{
+  role: 'assistant',
+  content: "To calculate the total price, you need to iterate over the `Order` array and calculate the sum of each product's price multiplied by the quantity. Here's the JSONata expression to accomplish this:\n" +
+    '\n' +
+    '```\n' +
+    '$sum(Account.Order.Product.(Price * Quantity))\n' +
+    '```\n' +
+    '\n' +
+    'This expression will evaluate to `336.36` based on the given input JSON.'
+}
+message To calculate the total price, you need to iterate over the `Order` array and calculate the sum of each product's price multiplied by the quantity. Here's the JSONata expression to accomplish this:
+
+```
+$sum(Account.Order.Product.(Price * Quantity))
+```
+
+This expression will evaluate to `336.36` based on the given input JSON.
+indexString ```
+skipCount 3
+expression 
+$sum(Account.Order.Product.(Price * Quantity))
+
+
+$sum(Account.Order.Product.(Price * Quantity))
+
+336.36
+
+$sum(Account.Order.Product.(Price * Quantity))
+
+POST /jsonata/expression 200 3699.593 ms - 52
+[nodemon] restarting due to changes...
+[nodemon] starting `node index.js`
+app started on port:4000
+{ type: 'number' }
+{
+  id: 'chatcmpl-7vJLoWNJCC5duxDqIEtpfjGmq47mF',
+  object: 'chat.completion',
+  created: 1693893436,
+  model: 'gpt-3.5-turbo-0613',
+  choices: [ { index: 0, message: [Object], finish_reason: 'stop' } ],
+  usage: { prompt_tokens: 479, completion_tokens: 102, total_tokens: 581 }
+}
+{
+  role: 'assistant',
+  content: 'The JSONata expression to calculate the total price in the output JSON is:\n' +
+    '\n' +
+    '```\n' +
+    'Account.Order.Product.(Price * Quantity).$sum()\n' +
+    '```\n' +
+    '\n' +
+    'This expression:\n' +
+    '1. Navigates to the "Product" array inside the "Order" array inside the "Account" object.\n' +
+    '2. Multiplies the "Price" of each product with its corresponding "Quantity".\n' +
+    '3. Gets the sum of these calculated values.\n' +
+    '\n' +
+    'Applying this expression to the input JSON will yield the output JSON `336.36`.'
+}
+message The JSONata expression to calculate the total price in the output JSON is:
+
+```
+Account.Order.Product.(Price * Quantity).$sum()
+```
+
+This expression:
+1. Navigates to the "Product" array inside the "Order" array inside the "Account" object.
+2. Multiplies the "Price" of each product with its corresponding "Quantity".
+3. Gets the sum of these calculated values.
+
+Applying this expression to the input JSON will yield the output JSON `336.36`.
+indexString ```
+skipCount 3
+expression 
+Account.Order.Product.(Price * Quantity).$sum()
+
+
+Account.Order.Product.(Price * Quantity).$sum()
+
+{
+  code: 'T0410',
+  stack: 'Error\n' +
+    '    at throwValidationError (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:7187:33)\n' +
+    '    at Object.validate (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:7294:17)\n' +
+    '    at validateArguments (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:5062:39)\n' +
+    '    at applyInner (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:4929:33)\n' +
+    '    at apply (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:4896:24)\n' +
+    '    at evaluateFunction (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:4871:28)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async evaluate (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:3525:26)\n' +
+    '    at async evaluateStep (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:3682:23)\n' +
+    '    at async evaluatePath (/Users/satheesh/workspace/jsonata-expression-builder/node_modules/jsonata/jsonata.js:3612:38)',
+  value: undefined,
+  index: 1,
+  token: 'sum',
+  position: 47,
+  message: 'Argument 1 of function "sum" does not match function signature'
+}
+POST /jsonata/expression 500 5475.995 ms - 31
+

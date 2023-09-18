@@ -22,13 +22,7 @@ app.post("/jsonata/expression", async (req, res) => {
   }
   try {
     const expression = await generateExpression(input, output);
-    console.log(expression);
-    // If its false then retry with openai again
-    if (expression === false) {
-      res.status(500).send("Error while building expression");
-    } else {
-      res.write(expression);
-    }
+    res.write(expression);
   } catch (error) {
     console.log(error);
     res.status(500).send("Error while building expression");

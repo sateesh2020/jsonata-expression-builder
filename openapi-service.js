@@ -6,7 +6,7 @@ const express = require("express");
 const EXPRESSION_BUILDER_PROMPT = "./templates.js";
 
 const openai = new OpenAI({
-  apiKey: "", // defaults to process.env["OPENAI_API_KEY"]
+  apiKey: "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", // defaults to process.env["OPENAI_API_KEY"]
 });
 
 const validateJSONataExpression = async (expression, input, output) => {
@@ -76,7 +76,7 @@ const generateExpression = async (input, output) => {
   if (isValidExpression) {
     return jsonataExpression;
   }
-  return {};
+  return generateExpression(input, output);
 };
 
 module.exports = generateExpression;
